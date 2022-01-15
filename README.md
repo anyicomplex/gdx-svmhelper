@@ -1,7 +1,7 @@
 # gdx-graalhelper
 Experimental helper for [libGDX](https://libgdx.com/) to build GraalVM native-image.  
-Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.  
-Current supports libGDX v1.10.0 only, and do not support any libGDX extension.
+**Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.  
+Current supports libGDX v1.10.0 LWJGL3 backend only, and do not support any libGDX extension.**
 
 ## Usage
 ### 1. Add this repo to your project dependency

@@ -54,7 +54,7 @@ Default configurations (`native-image -jar <jarName>.jar`) has work on **MY MACH
 ### 4. Copy shared libraries and assets
 Shared libraries can be found at dependency jars, or you can also extract them from the built fat-jar.  
 Put them to `org.lwjgl.librarypath` directory.  
-Assets must be put at the same path of built native-image.
+Assets should be put at the same path of built native-image.
 ### 5. All done. Now you can try to run built native-image!
 
 ## License

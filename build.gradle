@@ -38,7 +38,40 @@ test {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifactId = artifactId
+            artifactId = 'gdx-graalhelper'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'libGDX Graal Helper'
+                description = 'Experimental helper for libGDX to build GraalVM native-image.'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'anyicomplex'
+                        name = 'Yi An'
+                        email = 'anyicomplex@protonmail.com'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
+            def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
         }
     }
 }

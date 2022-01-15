@@ -50,6 +50,7 @@ native-image /*args*/ -Dorg.lwjgl.librarypath=<Your shared library path> /*args*
 ### 3. Make fat-jar, then build native-image
 You need at least [GraalVM](https://www.graalvm.org/) CE (or EE) v21.3.0 to build.  
 Please follow [here](https://www.graalvm.org/reference-manual/native-image/) :)  
+You should pass `--report-unsupported-elements-at-runtime` arg to `native-image`, otherwise it will build a fallback image.  
 `native-image --report-unsupported-elements-at-runtime -jar <jarName>.jar` has work on **MY MACHINE**.
 ### 4. Copy shared libraries and assets
 Shared libraries can be found at dependency jars, or you can also extract them from the built fat-jar.  

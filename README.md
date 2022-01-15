@@ -57,5 +57,5 @@ Put them to `org.lwjgl.librarypath` directory.
 Assets must be put at the same path of built native-image.
 ### 5. All done. Now you can try to run built native-image!
 
-# License
+## License
 [Apache 2.0](https://github.com/anyicomplex/gdx-graalhelper/blob/master/LICENSE)

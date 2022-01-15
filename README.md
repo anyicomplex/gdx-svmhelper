@@ -3,8 +3,8 @@ Experimental helper for [libGDX](https://libgdx.com/) to build GraalVM native-im
 **Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.  
 Current supports libGDX v1.10.0 LWJGL3 backend only, and do not support any libGDX extension.**
 
-## Demo
-https://github.com/anyicomplex/gdx-native-image-demo/
+## Example
+https://github.com/anyicomplex/gdx-native-image-example
 
 ## Usage
 ### 1. Add this repo to your project dependency

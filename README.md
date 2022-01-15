@@ -3,6 +3,9 @@ Experimental helper for [libGDX](https://libgdx.com/) to build GraalVM native-im
 **Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.  
 Current supports libGDX v1.10.0 LWJGL3 backend only, and do not support any libGDX extension.**
 
+## Demo
+https://github.com/anyicomplex/gdx-native-image-demo/
+
 ## Usage
 ### 1. Add this repo to your project dependency
 Step 1. Add the JitPack repository to your build file
@@ -49,7 +52,7 @@ native-image /*args*/ -Dorg.lwjgl.librarypath=<Your shared library path> /*args*
 ```
 ### 3. Make fat-jar, then build native-image
 You need at least [GraalVM](https://www.graalvm.org/) CE (or EE) v21.3.0 to build.  
-Please follow [here](https://www.graalvm.org/reference-manual/native-image/) :)  
+For more information of GraalVM `native-image`, please follow [here](https://www.graalvm.org/reference-manual/native-image/) :)  
 You should pass `--report-unsupported-elements-at-runtime` arg to `native-image`, otherwise it will build a fallback image.  
 `native-image --report-unsupported-elements-at-runtime -jar <jarName>.jar` has work on **MY MACHINE**.
 ### 4. Copy shared libraries and assets

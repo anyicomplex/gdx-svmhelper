@@ -1,0 +1,36 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"\\Qorg/lwjgl/system/APIUtil.class\\E"
+    },
+    {
+      "pattern":"\\Qsfd.ser\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/utils/arial-15.fnt\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/utils/arial-15.png\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl\\E"
+    },
+    {
+      "pattern":"\\Qcom/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl\\E"
+    }
+  ]},
+  "bundles":[]
+}

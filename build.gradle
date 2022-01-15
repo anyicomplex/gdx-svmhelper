@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group 'com.anyicomplex'
+
+ext {
+    gdxVersion='1.10.0'
+    graalvmVersion='21.3.0'
+}
+
+version gdxVersion + '-beta1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "org.graalvm.nativeimage:svm-hosted-native-linux-amd64:$graalvmVersion"
+    compileOnly "org.graalvm.nativeimage:svm-hosted-native-windows-amd64:$graalvmVersion"
+    compileOnly "org.graalvm.nativeimage:svm-hosted-native-darwin-amd64:$graalvmVersion"
+    implementation "org.graalvm.nativeimage:svm:$graalvmVersion"
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+/*
+test {
+    useJUnitPlatform()
+}
+ */

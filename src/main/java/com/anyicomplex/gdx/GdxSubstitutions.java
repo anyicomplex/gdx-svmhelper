@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.lwjgl3;
+package com.anyicomplex.gdx;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.SharedLibraryLoader;

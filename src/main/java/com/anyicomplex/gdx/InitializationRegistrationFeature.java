@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.lwjgl3;
+package com.anyicomplex.gdx;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import org.graalvm.nativeimage.hosted.Feature;

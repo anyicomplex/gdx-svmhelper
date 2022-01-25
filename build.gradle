@@ -1,29 +1,34 @@
 plugins {
-    id 'java'
-    id 'maven-publish'
 }
 
-group 'com.anyicomplex'
+allprojects {
+    apply plugin: "java-library"
 
-ext {
-    gdxVersion='1.10.0'
-    graalvmVersion='21.3.0'
-}
+    group 'com.anyicomplex'
 
-version gdxVersion + '-beta1'
+    ext {
+        gdxVersion='1.10.0'
+        graalvmVersion='21.3.0'
+    }
 
-repositories {
-    mavenCentral()
-    maven { url "https://jitpack.io" }
+    version gdxVersion + '-beta1'
+
+    repositories {
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        implementation "org.graalvm.nativeimage:svm:$graalvmVersion"
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+
+    }
 }
 
 dependencies {
+    // Not sure why that?
     compileOnly "org.graalvm.nativeimage:svm-hosted-native-linux-amd64:$graalvmVersion"
     compileOnly "org.graalvm.nativeimage:svm-hosted-native-windows-amd64:$graalvmVersion"
     compileOnly "org.graalvm.nativeimage:svm-hosted-native-darwin-amd64:$graalvmVersion"
-    implementation "org.graalvm.nativeimage:svm:$graalvmVersion"
-    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
-    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
 
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
@@ -35,43 +40,53 @@ test {
 }
  */
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'gdx-graalhelper'
-            from components.java
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
-            pom {
-                name = 'libGDX Graal Helper'
-                description = 'Experimental helper for libGDX to build GraalVM native-image.'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+configure([
+        project(":"),
+        project(":backends:lwjgl3"),
+        project(":backends:moe"),
+        project(":extensions:bullet"),
+
+]) {
+    apply plugin: 'maven-publish'
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = 'gdx-graalhelper'
+                from components.java
+                versionMapping {
+                    usage('java-api') {
+                        fromResolutionOf('runtimeClasspath')
+                    }
+                    usage('java-runtime') {
+                        fromResolutionResult()
                     }
                 }
-                developers {
-                    developer {
-                        id = 'anyicomplex'
-                        name = 'Yi An'
-                        email = 'anyicomplex@protonmail.com'
+                pom {
+                    name = 'libGDX Graal Helper'
+                    description = 'Experimental helper for libGDX to build GraalVM native-image.'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'anyicomplex'
+                            name = 'Yi An'
+                            email = 'anyicomplex@protonmail.com'
+                        }
                     }
                 }
             }
         }
-    }
-    repositories {
-        maven {
-            def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
-            def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        repositories {
+            maven {
+                def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
+                def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            }
         }
     }
 }
+

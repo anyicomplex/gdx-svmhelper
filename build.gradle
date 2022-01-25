@@ -62,7 +62,7 @@ configure([
     publishing {
         publications {
             mavenJava(MavenPublication) {
-                def idStr = "gdx-graalhelper"
+                def idStr = rootProject.name
                 if (project.name != rootProject.name) {
                     idStr += "-"
                     idStr += project.parent.name.substring(0, project.parent.name.length() - 1)
@@ -101,8 +101,8 @@ configure([
                         }
                     }
                     scm {
-                        connection = 'scm:git:https://github.com/anyicomplex/gdx-graalhelper.git'
-                        developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
+                        connection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
+                        developerConnection = 'scm:git:ssh://github.com/anyicomplex/gdx-graalhelper.git'
                         url = 'https://github.com/anyicomplex/gdx-graalhelper'
                     }
                 }
@@ -121,6 +121,22 @@ configure([
                 def releasesRepoUrl = layout.buildDirectory.dir('repos/releases')
                 def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            }
+            maven {
+                name = "OSSRH"
+                url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+                credentials {
+                    username = System.getenv("MAVEN_USERNAME")
+                    password = System.getenv("MAVEN_PASSWORD")
+                }
+            }
+            maven {
+                name = "GitHubPackages"
+                url = "https://maven.pkg.github.com/octocat/hello-world"
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
             }
         }
     }

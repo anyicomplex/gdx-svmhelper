@@ -1,13 +1,12 @@
 allprojects {
     apply plugin: "java-library"
 
-    group 'com.anyicomplex'
-
     ext {
-        gdxVersion='1.10.0'
-        graalvmVersion='21.3.0'
+        gdxVersion = '1.10.0'
+        graalvmVersion = '21.3.0'
     }
 
+    group 'com.anyicomplex'
     version gdxVersion + '-beta2'
 
     repositories {
@@ -53,10 +52,15 @@ configure([
 
 ]) {
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
     publishing {
         publications {
             mavenJava(MavenPublication) {
-                def idStr = rootProject.name
+                def idStr = "gdx-graalhelper"
                 if (project.name != rootProject.name) {
                     idStr += "-"
                     idStr += project.parent.name.substring(0, project.parent.name.length() - 1)
@@ -64,15 +68,9 @@ configure([
                     idStr += project.name
                 }
                 artifactId = idStr
+                groupId = project.group
+                version = project.version
                 from components.java
-                versionMapping {
-                    usage('java-api') {
-                        fromResolutionOf('runtimeClasspath')
-                    }
-                    usage('java-runtime') {
-                        fromResolutionResult()
-                    }
-                }
                 pom {
                     def nameStr = "libGDX Graal Helper"
                     if (project.name != rootProject.name) {
@@ -86,6 +84,7 @@ configure([
                     }
                     name = nameStr
                     description = 'Experimental helper for libGDX to build GraalVM native-image.'
+                    url = 'https://github.com/anyicomplex/gdx-graalhelper'
                     licenses {
                         license {
                             name = 'The Apache License, Version 2.0'
@@ -99,6 +98,19 @@ configure([
                             email = 'anyicomplex@protonmail.com'
                         }
                     }
+                    scm {
+                        connection = 'scm:git:https://github.com/anyicomplex/gdx-graalhelper.git'
+                        developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
+                        url = 'https://github.com/anyicomplex/gdx-graalhelper'
+                    }
+                }
+                versionMapping {
+                    usage('java-api') {
+                        fromResolutionOf('runtimeClasspath')
+                    }
+                    usage('java-runtime') {
+                        fromResolutionResult()
+                    }
                 }
             }
         }
@@ -108,6 +120,15 @@ configure([
                 def snapshotsRepoUrl = layout.buildDirectory.dir('repos/snapshots')
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             }
+        }
+    }
+    signing {
+        sign publishing.publications.mavenJava
+    }
+
+    javadoc {
+        if(JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
         }
     }
 }

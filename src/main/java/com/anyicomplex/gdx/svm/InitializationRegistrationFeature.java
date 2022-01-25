@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx;
+package com.anyicomplex.gdx.svm;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import org.graalvm.nativeimage.hosted.Feature;

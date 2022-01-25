@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.lwjgl3;
+package com.anyicomplex.gdx.lwjgl3.svm;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import com.oracle.svm.core.jni.JNIRuntimeAccess;

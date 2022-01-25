@@ -1,5 +1,3 @@
-include(":backends:moe")
-include(":backends:lwjgl3")
-include(":extensions:bullet")
 rootProject.name = 'gdx-graalhelper'
+include 'backends:moe', 'backends:lwjgl3', 'extensions:bullet'
 

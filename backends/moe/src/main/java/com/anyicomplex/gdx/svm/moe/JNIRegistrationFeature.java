@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.moe;
+package com.anyicomplex.gdx.svm.moe;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import com.oracle.svm.core.jni.JNIRuntimeAccess;

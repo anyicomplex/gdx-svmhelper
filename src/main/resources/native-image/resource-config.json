@@ -2,9 +2,6 @@
   "resources":{
   "includes":[
     {
-      "pattern":"\\Qorg/lwjgl/system/APIUtil.class\\E"
-    },
-    {
       "pattern":"\\Qsfd.ser\\E"
     },
     {

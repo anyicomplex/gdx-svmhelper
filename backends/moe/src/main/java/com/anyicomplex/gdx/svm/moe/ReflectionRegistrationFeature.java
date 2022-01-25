@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.moe;
+package com.anyicomplex.gdx.svm.moe;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import org.graalvm.nativeimage.hosted.Feature;
@@ -17,16 +17,6 @@ public class ReflectionRegistrationFeature implements Feature {
             e.printStackTrace();
         }
 
-    }
-    
-    public void registerForAnyInstantiation(Class<?>... classes) {
-        RuntimeReflection.register(classes);
-        for (Class<?> clazz : classes) {
-            RuntimeReflection.register(clazz.getDeclaredConstructors());
-            RuntimeReflection.register(clazz.getDeclaredMethods());
-            RuntimeReflection.register(clazz.getDeclaredFields());
-            registerForAnyInstantiation(clazz.getDeclaredClasses());
-        }
     }
 
 }

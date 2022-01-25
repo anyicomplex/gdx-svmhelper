@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.bullet;
+package com.anyicomplex.gdx.bullet.svm;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import com.oracle.svm.core.jni.JNIRuntimeAccess;

@@ -1,7 +1,11 @@
 # gdx-graalhelper
 Experimental helper for [libGDX](https://libgdx.com/) to build [GraalVM](https://www.graalvm.org/) native-image.  
-**Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.  
-Current supports libGDX v1.10.0 LWJGL3 backend only, and do not support any libGDX extension.**
+**Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.**
+
+## Current state
+- Support of LWJGL3 backend v1.10.0
+- Support of MOE backend (third-party)
+- Support of libGDX official extensions (working in progress)
 
 ## Examples
 https://github.com/anyicomplex/gdx-native-image-example  
@@ -22,7 +26,10 @@ Step 1. Add the JitPack repository to your build file
 Step 2. Add the dependency
 ```groovy
 	dependencies {
-	        implementation 'com.github.anyicomplex:gdx-graalhelper:1.10.0-beta1'
+	        implementation 'com.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
+            implementation 'com.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2' // LWJGL3
+            implementation 'com.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2' // MOE
+            implementation 'com.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
 	}
 ```
 ### 2. Set the shared library path
@@ -64,3 +71,6 @@ Assets should be put at the same path of built native-image.
 
 ## License
 [Apache 2.0](https://github.com/anyicomplex/gdx-graalhelper/blob/master/LICENSE)
+
+## Special thanks
+[Berstanio](https://github.com/Berstanio)

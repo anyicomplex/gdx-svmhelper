@@ -1,4 +1,4 @@
-package com.anyicomplex.gdx.lwjgl3;
+package com.anyicomplex.gdx.lwjgl3.svm;
 
 import com.oracle.svm.core.annotate.Alias;
 import com.oracle.svm.core.annotate.RecomputeFieldValue;

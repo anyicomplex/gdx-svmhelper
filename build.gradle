@@ -13,9 +13,11 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
+
     dependencies {
         implementation "org.graalvm.nativeimage:svm:$graalvmVersion"
     }
+
 }
 
 dependencies {
@@ -122,6 +124,7 @@ configure([
             }
         }
     }
+
     signing {
         sign publishing.publications.mavenJava
     }
@@ -131,5 +134,6 @@ configure([
             options.addBooleanOption('html5', true)
         }
     }
+
 }
 

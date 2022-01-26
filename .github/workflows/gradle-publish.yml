@@ -8,6 +8,22 @@
 name: Gradle Package
 
 on:
+  workflow_call:
+    inputs:
+      ENVIRONMENT:
+        required: true
+        type: string
+    secrets:
+      MAVEN_USERNAME:
+        required: true
+      MAVEN_PASSWORD:
+        required: true
+      GITHUB_TOKEN:
+        required: true
+      SIGNING_KEY:
+        required: true
+      SIGNING_PASSWORD:
+        required: true
   workflow_dispatch:
   release:
     types: [created]

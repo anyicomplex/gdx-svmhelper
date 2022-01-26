@@ -8,22 +8,6 @@
 name: Gradle Package
 
 on:
-  workflow_call:
-    inputs:
-      ENVIRONMENT:
-        required: true
-        type: string
-    secrets:
-      MAVEN_USERNAME:
-        required: true
-      MAVEN_PASSWORD:
-        required: true
-      GITHUB_TOKEN:
-        required: true
-      SIGNING_KEY:
-        required: true
-      SIGNING_PASSWORD:
-        required: true
   workflow_dispatch:
   release:
     types: [created]
@@ -55,6 +39,9 @@ jobs:
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
       uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+    - run: |
+      echo 'printing envs'
+      env
       with:
         arguments: publish
       env:

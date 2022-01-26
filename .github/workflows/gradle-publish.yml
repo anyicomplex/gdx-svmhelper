@@ -18,16 +18,6 @@ on:
         required: true
       SIGNING_PASSWORD:
         required: true
-  workflow_dispatch:
-    secrets:
-      OSSRH_USERNAME:
-        required: true
-      OSSRH_TOKEN:
-        required: true
-      SIGNING_KEY:
-        required: true
-      SIGNING_PASSWORD:
-        required: true
   release:
     types: [created]
 

@@ -140,9 +140,7 @@ configure([
         }
         signing {
             def key = System.getenv("SIGNING_KEY")
-            println key
             def password = System.getenv("SIGNING_PASSWORD")
-            println password
             useInMemoryPgpKeys(key, password)
             sign configurations.archives
         }

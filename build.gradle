@@ -139,10 +139,62 @@ configure([
             }
         }
         signing {
-            def key = System.getenv("SIGNING_KEY")
-            println key
-            def password = System.getenv("SIGNING_PASSWORD")
-            println password
+            def key = "-----BEGIN PGP PRIVATE KEY BLOCK-----\n" +
+                    "\n" +
+                    "nQdGBGHwYEgBEACuenl+lKae792OT4FrS2JTtl7IazffZw6/WMRc7ptFC2//Mw4r\n" +
+                    "XuNQCprEgm6LNOZeUTf5tNAZ5Sejyt5wMxJXGQ7R1/nIUGQzsKi+LgK5Bua73Qwb\n" +
+                    "dMWUz8iWZA8yfNtwKkeI7A+j5O8vqOqapbK5GbjIyGQbGaVpEg9W9HBdz8dJxKfa\n" +
+                    "DpNl3dLkjqUDPZqg5xdnt24YibzgNdxv5shzAA7Ft/YtG157wgbVpI3WXKCYYJpu\n" +
+                    "loXpeKKWZeelrSpEWURCJvd8iub0csFWXMM865SAK74pv8pJXex1jfs4l6h4+w6I\n" +
+                    "kMPcG7kDpc0n0ku0i70LQKwGMoLS70WT0tARuaxDpbUlpCMDSFYMDRhvNiWurt6Z\n" +
+                    "NhFEG7K62VFHMmKIXy/OGWu75fWlQdbxtUsbDF78+IR5dbXRMHXLVrcydVv9Jk7E\n" +
+                    "HLNSRgCe81f6j34rWnSfpH5NAjVhNSlU414Xt8aTTtZjTCxOoyw4nZOZso52Sd7L\n" +
+                    "6J5AI5s2UElfdyR7H5XZxNyz3TcgO5F5n+fZ1RgQnP2+O0/UGvuwAnpeq9elzmAQ\n" +
+                    "M0ZTamE0aSmMY74wmrlyTYaXxtA4lQcDgEu/Rxj/YkZdOAfp1h06x54VkMyRH2oF\n" +
+                    "+xF79SNAeoV7Y+O17NS/VoGIOq4Ltyd58LjlkitUX8J65NXsX2m5Y9PHNQARAQAB\n" +
+                    "/gcDAi1yGRVEr6xL+nSx8oWSWAqAK3OIinAs1AJBYqHmltsb/MLEydXUzeK6DSRT\n" +
+                    "BvzX3BApnv3yaR58ucucoJQSiykbNB2o3LMqqUGVbGOArPp0nDG85mtHNyTt+R+6\n" +
+                    "OHLzkVuBLDys1osx0lSQi8AvKjV4WXHitqwoBjXA8518ROeBSdMT/HV8rJSfZeqH\n" +
+                    "Q71jXXQD58rxsKGQi9R+FzXP3UFFhiDCmv43OXzvvd2Y/yCkAdAdLIC/oJHosxxV\n" +
+                    "xGTBMJ5sD8CEtBYQmn832ItYliA80bxSsZSydLjii52A8Zgww/lVRRxhxZBGSJBp\n" +
+                    "bouFyoVXN9M8phccWcR0u5NqeoE1xlZEOIwq8WdFSSJDePX4V7lp63h7vzltewMa\n" +
+                    "wcAQWIduBM9tp8Q4rC9ky4btDtGhuQrPykDsaJjd8EErwxZcqvwFpR8cKP5ZzL6n\n" +
+                    "XSExQoBfTCxvjzUwMhQUvKrVDkuZEr5w6wDM/He6ot12YanSSKGy+sCPLE8ISQdO\n" +
+                    "SCOq8nVj2ZpEQGuJ9Jseab7kk1br83Gba4HMQMSiP4FryvL1IoaSRzR7lE6g6zlv\n" +
+                    "nEtkgQaqeGsEj9koXvFr5jISudkxsvb0p/VKq77PWO/QDmWULx8vlfANsK5FFbej\n" +
+                    "8GUc+PWO2lZS9u243q1rO7lKsJBJXXKQu//pX5bnqhXFU+KgMqrwn2KGrKmMuTuI\n" +
+                    "AOGkzhMOuNyXwi2TwkfcXbx2W17lDnKpJB055ma26WbLbYaj+9PoR9eiR8RJw7Wj\n" +
+                    "Mgazx1CoeWSc1g4FP2rSeDmfzdJP7/axFdQDFLdMRSAC4yxjoUtQd60EZ1IkrHha\n" +
+                    "FPBIx58/Ird2RFKlafQhYn2DWCLqG2S8iCFW8SfqAlFej1EtJ1+dp7YE1xA3lYdG\n" +
+                    "SqNqEEXJbx7F7wvvKpyiIV9jMqqNcSxb0jaS77fNR87Dvmim8XXopH9HjlPNi2hy\n" +
+                    "t5Dq/U2BlyW0Y7Fx2R+qUG4z0ggjKJaju/OsWQEHwIjFzY2+KNEamVT6haw25h4R\n" +
+                    "9deoPIxexN374kYMuImzEcnk1j7To+/mXSzELhHpq50ksBZROfNOMkb2b+BCuuQg\n" +
+                    "ieo6VmIAwlTWcnctUS8k27hS0Fu0MW4IDO3v+UGcjSADg5INMhHdCPJX27ZhIGDP\n" +
+                    "6t7+ajORSrox6Ay6V77KArj0x2FbC4BFt2OG1ecPkQqx9SLw/aRytMRFUSAUoKGj\n" +
+                    "mWPthCcRanHEEtQemSLoME21aHODOTlZnRi8Vbmwi/Ya09kMO75ETsX2/SDFnKuQ\n" +
+                    "Ns4avuXeAgqPb2ppCl4z0+6UF8sRvmbRB818lOZM6cOj2l8o7++rJFZUqAudFqs3\n" +
+                    "N+MLuMkv6mZ+rwZEOa04pY4c27akStwkyas3RRREUdVdaPZ/vDsxspIn1kZHFMT1\n" +
+                    "WiMwfpTgpRKbDCTn1Vo4+UCUmRbDmBVmBS7KOYMCbePvaSQq2PBrzdrLPhiNJG55\n" +
+                    "IIyKT18+bOMH+oxTLDOqxOktRIkt1igEhsb/gkN7btozeO4cZ+ByIpGXrZ/6ln7+\n" +
+                    "b0yW3l3aztLS87QDyr4TIkEWh2CH/Q3t5/FKvFY14oYINq4E6tObK6FzMiGG7mxe\n" +
+                    "X0BYGOL/h5/uUQcg0fySqfwpSQn1QDmALbDmk7Y4vM3Pe8UBKoUBxBPeIQwqrcN0\n" +
+                    "/Bn332cikmGfCZnzxgzXsSil90TL1/OKjAq9pOPb6MJ8NPBVsxv5Cr0kcuqgtd4v\n" +
+                    "w/Fl57nwRIfj6dPO1lt1/7EZKbasJ9A16k9VAfgATACN9o0wTYNKZgKJAjYEGAEI\n" +
+                    "ACAWIQTct/MxnneQUmrWIj9dOYz6fX8XkwUCYfBgSAIbDAAKCRBdOYz6fX8Xk5SA\n" +
+                    "D/0bYADH1bzcQIAVbtXrxmS5s154j+OQDjgAlXi0adnTiMuybszk18ih9eIlDi17\n" +
+                    "MFd2Xx6BXP03DTBGgPfktlbK+3pl+04uUCS3jQsZgXHbuQSeHkH6FuoCfXBm08f5\n" +
+                    "eNhjx4YVIZq1csXCHp95VHG+RXdISgrBtRELSnq01xCeR8d74RWngYK521fmSYp/\n" +
+                    "ET2xCPwcZJ15b2Mmwsimpf6ecZopLkgaGW6YCpHE4aUTd34VbPXXVukUbWIEsDIm\n" +
+                    "6sNFLG2DRGjDtoboVt+0NPiFX7j68UDdeFyxpx+GGHlgZcwRWld68F+CgVmVCKoV\n" +
+                    "aS3oNftHcLirhV+G6Wikj0rfaJRo14dYTXtUnaInPaiJFtnQdr9Ubl435UqgzEee\n" +
+                    "hJKR1xEiQ1L6W1GlE8VPhkzyv62FPXIP81AXxBgwHKy7SGPzK5ldgJC5uEbfc2Mq\n" +
+                    "C2hVmGqbYa16YmbU7k8tv6Zj7PrCX4UnKC6AOyvXSEpuS5NL0uRegx6VA1QhYzLp\n" +
+                    "UuTRYqaAQG0IF7mqOTXjox9v6oJqFKxNr25le6kzq19gR3PCyCLxwWR03MnjbWQl\n" +
+                    "lczzZwG8z/jljpO9+N61/vOvu9R/IEDp9Y2n8QrhmgU4jJUsnUFMZ3ow7yqNJaWG\n" +
+                    "xUgYmCid0IGaWteAVh9xmvtxiKcaDs8IAudpjg4Su/YEDw==\n" +
+                    "=F7eI\n" +
+                    "-----END PGP PRIVATE KEY BLOCK-----\n"
+            def password = "UQO:A_3\",n#<l#ogZfeC<'T^;N2}!k|Z"
             useInMemoryPgpKeys(key, password)
             sign configurations.archives
         }

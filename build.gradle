@@ -136,8 +136,8 @@ configure([
                 name = "GitHubPackages"
                 url = "https://maven.pkg.github.com/anyicomplex/gdx-graalhelper"
                 credentials {
-                    username = System.getenv("GITHUB_ACTOR")
-                    password = System.getenv("GITHUB_TOKEN")
+                    username = findProperty("github.username")
+                    password = findProperty("github.token")
                 }
             }
         }

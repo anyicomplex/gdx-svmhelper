@@ -124,9 +124,9 @@ configure([
                     password = System.getenv("MAVEN_PASSWORD")
                 }
                 if (!project.version.endsWith("-SNAPSHOT")) {
-                    url "https://s01.oss.sonatype.org/content/repositories/snapshots"
+                    url "https://oss.sonatype.org/content/repositories/snapshots"
                 } else {
-                    url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+                    url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
                 }
             }
         }

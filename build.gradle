@@ -114,6 +114,12 @@ configure([
                         fromResolutionResult()
                     }
                 }
+                signing {
+                    def key = System.getenv("SIGNING_KEY")
+                    def password = System.getenv("SIGNING_PASSWORD")
+                    useInMemoryPgpKeys(key, password)
+                    sign configurations.archives
+                }
             }
         }
         repositories {
@@ -129,12 +135,6 @@ configure([
                     url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
                 }
             }
-        }
-        signing {
-            def key = System.getenv("SIGNING_KEY")
-            def password = System.getenv("SIGNING_PASSWORD")
-            useInMemoryPgpKeys(key, password)
-            sign configurations.archives
         }
     }
 

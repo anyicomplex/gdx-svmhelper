@@ -10,23 +10,10 @@ public class JNIRegistrationFeature implements Feature {
     @Override
     public void beforeAnalysis(BeforeAnalysisAccess access) {
 
-        try {
-            //LWJGL3
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.V.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.Z.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.B.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.S.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.I.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.J.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.N.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.F.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.D.class.getDeclaredMethod("callback", long.class));
-            JNIRuntimeAccess.register(org.lwjgl.system.CallbackI.P.class.getDeclaredMethod("callback", long.class));
+        //LWJGL3
+        for (Class<?> aClass : org.lwjgl.system.CallbackI.class.getDeclaredClasses()) {
+            JNIRuntimeAccess.register(aClass.getDeclaredMethods());
         }
-        catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-
     }
 
 }

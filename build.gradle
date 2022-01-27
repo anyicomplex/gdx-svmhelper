@@ -6,7 +6,7 @@ allprojects {
         graalvmVersion = '21.3.0'
     }
 
-    group 'com.anyicomplex'
+    group 'io.github.anyicomplex'
     version gdxVersion + '-beta2'
 
     repositories {

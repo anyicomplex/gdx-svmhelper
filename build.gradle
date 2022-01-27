@@ -114,12 +114,6 @@ configure([
                         fromResolutionResult()
                     }
                 }
-                signing {
-                    def key = System.getenv("SIGNING_KEY")
-                    def password = System.getenv("SIGNING_PASSWORD")
-                    useInMemoryPgpKeys(key, password)
-                    sign configurations.archives
-                }
             }
         }
         repositories {
@@ -136,6 +130,13 @@ configure([
                 }
             }
         }
+    }
+
+    signing {
+        def key = System.getenv("SIGNING_KEY")
+        def password = System.getenv("SIGNING_PASSWORD")
+        useInMemoryPgpKeys(key, password)
+        sign configurations.archives
     }
 
 }

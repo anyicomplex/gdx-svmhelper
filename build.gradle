@@ -129,14 +129,6 @@ configure([
                     password = System.getenv("MAVEN_TOKEN")
                 }
             }
-            maven {
-                name = "GitHubPackages"
-                url = "https://maven.pkg.github.com/anyicomplex/gdx-graalhelper"
-                credentials {
-                    username = System.getenv("GITHUB_ACTOR")
-                    password = System.getenv("GITHUB_TOKEN")
-                }
-            }
         }
         signing {
             def key = System.getenv("SIGNING_KEY")

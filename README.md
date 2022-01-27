@@ -15,22 +15,22 @@ https://github.com/anyicomplex/unlucky-ae
 ### 1. Add this repo to your project dependency
 Step 1. Add the Maven Central repository to your build file
 ```groovy
-	allprojects {
-		repositories {
-			...
-			mavenCentral()
-		}
+allprojects {
+	repositories {
+		...
+		mavenCentral()
 	}
+}
 ```
 
 Step 2. Add the dependency
 ```groovy
-	dependencies {
-	        implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
-                implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'   // LWJGL3
-                implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'      // MOE
-                implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
-	}
+dependencies {
+	implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'   // LWJGL3
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'      // MOE
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
+}
 ```
 ### 2. Set the shared library path
 You can either add `GraalHelper.setupSharedLibraryPath(String libPath)` to your Launcher's `main(String[] args)`

@@ -1,4 +1,7 @@
 # gdx-graalhelper
+[![Java CI with Gradle](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle.yml/badge.svg)](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle.yml)
+[![Publish to Maven Central](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle-publish.yml)
+
 Experimental helper for [libGDX](https://libgdx.com/) to build [GraalVM](https://www.graalvm.org/) native-image.  
 **Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.**
 
@@ -13,24 +16,24 @@ https://github.com/anyicomplex/unlucky-ae
 
 ## Usage
 ### 1. Add this repo to your project dependency
-Step 1. Add the JitPack repository to your build file
+Step 1. Add the Maven Central repository to your build file
 ```groovy
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		mavenCentral()
 	}
+}
 ```
 
 Step 2. Add the dependency
 ```groovy
-	dependencies {
-	        implementation 'com.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
-            implementation 'com.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2' // LWJGL3
-            implementation 'com.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2' // MOE
-            implementation 'com.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
-	}
+dependencies {
+	implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'   // LWJGL3
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'      // MOE
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
+}
 ```
 ### 2. Set the shared library path
 You can either add `GraalHelper.setupSharedLibraryPath(String libPath)` to your Launcher's `main(String[] args)`

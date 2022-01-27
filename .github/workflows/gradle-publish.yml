@@ -5,19 +5,9 @@
 # This workflow will build a package using Gradle and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#Publishing-using-gradle
 
-name: Gradle Package
+name: Publish to Maven Central
 
 on:
-  workflow_call:
-    secrets:
-      OSSRH_USERNAME:
-        required: true
-      OSSRH_TOKEN:
-        required: true
-      SIGNING_KEY:
-        required: true
-      SIGNING_PASSWORD:
-        required: true
   workflow_dispatch:
   release:
     types: [created]

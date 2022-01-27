@@ -54,6 +54,11 @@ configure([
 ]) {
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
+
+    ext {
+        isReleasedVersion = !project.version.endsWith("-SNAPSHOT")
+    }
+
     java {
         withJavadocJar()
         withSourcesJar()
@@ -118,10 +123,14 @@ configure([
         repositories {
             maven {
                 name = "OSSRH"
-                url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
                 credentials {
                     username = System.getenv("MAVEN_USERNAME")
                     password = System.getenv("MAVEN_PASSWORD")
+                }
+                if (!isReleasedVersion) {
+                    url "https://oss.sonatype.org/content/repositories/snapshots"
+                } else {
+                    url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
                 }
             }
         }

@@ -102,7 +102,7 @@ configure([
                     scm {
                         connection = 'scm:git:https://github.com/anyicomplex/gdx-graalhelper.git'
                         developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
-                        url = 'https://github.com/anyicomplex/gdx-graalhelper'
+                        url = 'https://github.com/anyicomplex/gdx-graalhelper/tree/main'
                     }
                 }
                 versionMapping {

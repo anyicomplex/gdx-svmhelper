@@ -136,7 +136,7 @@ configure([
         def key = System.getenv("SIGNING_KEY")
         def password = System.getenv("SIGNING_PASSWORD")
         useInMemoryPgpKeys(key, password)
-        sign configurations.archives
+        sign publishing.publications.mavenJava
     }
 
 }

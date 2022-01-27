@@ -100,8 +100,8 @@ configure([
                         }
                     }
                     scm {
-                        connection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
-                        developerConnection = 'scm:git:ssh://github.com/anyicomplex/gdx-graalhelper.git'
+                        connection = 'scm:git:https://github.com/anyicomplex/gdx-graalhelper.git'
+                        developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
                         url = 'https://github.com/anyicomplex/gdx-graalhelper'
                     }
                 }

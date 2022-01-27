@@ -14,6 +14,8 @@ on:
         required: true
       OSSRH_TOKEN:
         required: true
+      GITHUB_TOKEN:
+        required: true
       SIGNING_KEY:
         required: true
       SIGNING_PASSWORD:

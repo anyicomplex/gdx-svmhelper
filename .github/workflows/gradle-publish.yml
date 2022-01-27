@@ -57,3 +57,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+    - name: test
+      env:
+        MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+      run: |
+        example-command "$env:MAVEN_USERNAME"

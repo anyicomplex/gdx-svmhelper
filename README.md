@@ -1,4 +1,7 @@
 # gdx-graalhelper
+[![Java CI with Gradle](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle.yml/badge.svg)](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle.yml)
+[![Gradle Package](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/anyicomplex/gdx-graalhelper/actions/workflows/gradle-publish.yml)
+
 Experimental helper for [libGDX](https://libgdx.com/) to build [GraalVM](https://www.graalvm.org/) native-image.  
 **Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.**
 

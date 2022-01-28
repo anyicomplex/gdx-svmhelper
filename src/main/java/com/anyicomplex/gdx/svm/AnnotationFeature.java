@@ -2,8 +2,10 @@ package com.anyicomplex.gdx.svm;
 
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import org.graalvm.nativeimage.hosted.Feature;
+import org.graalvm.nativeimage.hosted.RuntimeSerialization;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 import java.util.stream.Collectors;
@@ -17,10 +19,22 @@ public class AnnotationFeature implements Feature {
 			f.setAccessible(true);
 			ClassLoader classLoader = access.getApplicationClassLoader();
 			Vector<Class<?>> classes = (Vector<Class<?>>)f.get(classLoader);
-			Class<?>[] toAdd = classes.stream().filter(aClass -> aClass.isAnnotationPresent(CollectForReflection.class)).toArray(Class[]::new);
+			ArrayList<String> collectedForReflection = new ArrayList<>();
+			ArrayList<String> collectedForSerialization = new ArrayList<>();
+			classes.forEach(aClass -> {
+				if (aClass.isAnnotationPresent(CollectForReflection.class)) {
+					FeatureUtils.registerForAnyInstantiation(aClass);
+					collectedForReflection.add(aClass.getName());
+				}
+				if (aClass.isAnnotationPresent(CollectForSerialization.class)) {
+					RuntimeSerialization.register(aClass);
+					collectedForSerialization.add(aClass.getName());
+				}
+			});
 			System.out.print("The following classes are added because of the CollectForReflection annotation: ");
-			System.out.println(Arrays.stream(toAdd).map(Class::getName).collect(Collectors.joining(", ")));
-			FeatureUtils.registerForAnyInstantiation(toAdd);
+			System.out.println(String.join(", ", collectedForReflection));
+			System.out.print("The following classes are added because of the CollectForSerialization annotation: ");
+			System.out.println(String.join(", ", collectedForSerialization));
 		} catch (NoSuchFieldException | IllegalAccessException e) {
 			e.printStackTrace();
 		}

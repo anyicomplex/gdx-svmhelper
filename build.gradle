@@ -14,7 +14,7 @@ allprojects {
     }
 
     dependencies {
-        implementation "org.graalvm.nativeimage:svm:$graalvmVersion"
+        api "org.graalvm.nativeimage:svm:$graalvmVersion"
     }
 
 }

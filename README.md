@@ -30,28 +30,28 @@ Step 2. Add the dependency
 ```groovy
 dependencies {
 	implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
-	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'   // LWJGL3
-	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'      // MOE
-	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2' // Bullet
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'     // LWJGL3
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'        // MOE
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-box2d:1.10.0-beta2'    // Box2D
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2'   // Bullet
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-freetype:1.10.0-beta2' // FreeType
 }
 ```
-### 2. Set the shared library path
-You can either add `GraalHelper.setupSharedLibraryPath(String libPath)` to your Launcher's `main(String[] args)`
+### 2. Set the shared library path (LWJGL3 backend only)
+You can either add `Lwjgl3NativeImageUtils.setupSharedLibraryPath(String libPath)` to your Launcher's `main(String[] args)`
 ```java
 public static void main(String[] args) {
     // Ensure that path has been set before Lwjgl3Application initialization
-		GraalHelper.setupSharedLibraryPath(); // equal as GraalHelper.setupSharedLibraryPath(".");
-    
+    Lwjgl3NativeImageUtils.setupSharedLibraryPath(); // equal as Lwjgl3NativeImageUtils.setSharedLibraryPath(".");
     /*Code*/
-    
-		createApplication();
-	}
+    createApplication();
+}
 ```
 or set jvmFlag `org.lwjgl.librarypath`  
 At run time:  
 either
 ```java
-System.setProperty("org.lwjgl.librarypath", /*Your shared library path*/); // equals as GraalHelper.setupSharedLibraryPath(String libPath);
+System.setProperty("org.lwjgl.librarypath", /*Your shared library path*/); // equals as Lwjgl3NativeImageUtils.setSharedLibraryPath(String libPath);
 ```
 or
 ```sh

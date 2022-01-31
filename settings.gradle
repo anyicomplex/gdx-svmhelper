@@ -1,4 +1,4 @@
 rootProject.name = 'gdx-graalhelper'
 include 'backends:moe', 'backends:lwjgl3'
 include 'extensions:box2d', 'extensions:bullet', 'extensions:freetype'
-include 'extensions:controllers-core', 'extensions:controllers-lwjgl3', 'extensions:controllers-moe'
+include 'extensions:controllers-lwjgl3', 'extensions:controllers-moe'

@@ -1,0 +1,9 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"\\Qgamecontrollerdb.txt\\E"
+    }
+  ]},
+  "bundles":[]
+}

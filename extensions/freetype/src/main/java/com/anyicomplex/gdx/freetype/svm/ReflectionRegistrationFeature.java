@@ -3,7 +3,6 @@ package com.anyicomplex.gdx.freetype.svm;
 import com.anyicomplex.gdx.svm.FeatureUtils;
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import org.graalvm.nativeimage.hosted.Feature;
-import org.graalvm.nativeimage.hosted.RuntimeReflection;
 
 @AutomaticFeature
 public class ReflectionRegistrationFeature implements Feature {

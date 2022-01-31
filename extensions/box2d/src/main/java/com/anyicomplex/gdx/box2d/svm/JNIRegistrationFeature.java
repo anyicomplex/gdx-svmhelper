@@ -1,6 +1,5 @@
 package com.anyicomplex.gdx.box2d.svm;
 
-import com.badlogic.gdx.physics.box2d.World;
 import com.oracle.svm.core.annotate.AutomaticFeature;
 import com.oracle.svm.core.jni.JNIRuntimeAccess;
 import org.graalvm.nativeimage.hosted.Feature;

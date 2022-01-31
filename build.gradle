@@ -68,7 +68,7 @@ project(":extensions:controllers-core") {
     }
 }
 
-project(":extensions:controllers-desktop") {
+project(":extensions:controllers-lwjgl3") {
     version gdxControllersVersion + '-beta3'
     dependencies {
         implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
@@ -90,7 +90,7 @@ configure([
         project(":extensions:bullet"),
         project(":extensions:freetype"),
         project(":extensions:controllers-core"),
-        project(":extensions:controllers-desktop"),
+        project(":extensions:controllers-lwjgl3"),
         //project(":extensions:controllers-moe"),
 
 ]) {

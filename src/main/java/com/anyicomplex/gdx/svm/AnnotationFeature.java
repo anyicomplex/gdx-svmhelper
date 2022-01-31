@@ -6,12 +6,11 @@ import org.graalvm.nativeimage.hosted.RuntimeSerialization;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Vector;
-import java.util.stream.Collectors;
 
 @AutomaticFeature
 public class AnnotationFeature implements Feature {
+
 	@Override
 	public void beforeAnalysis (BeforeAnalysisAccess access) {
 		try {
@@ -39,4 +38,5 @@ public class AnnotationFeature implements Feature {
 			e.printStackTrace();
 		}
 	}
+
 }

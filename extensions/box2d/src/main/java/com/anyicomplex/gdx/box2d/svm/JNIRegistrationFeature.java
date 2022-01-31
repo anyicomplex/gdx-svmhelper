@@ -12,14 +12,14 @@ public class JNIRegistrationFeature implements Feature {
     public void beforeAnalysis(BeforeAnalysisAccess access) {
 
         try {
-            JNIRuntimeAccess.register(World.class);
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("beginContact", long.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("endContact", long.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("preSolve", long.class, long.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("postSolve", long.class, long.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("reportFixture", long.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("reportRayFixture", long.class, float.class, float.class, float.class, float.class, float.class));
-            JNIRuntimeAccess.register(World.class.getDeclaredMethod("contactFilter", long.class, long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class);
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("beginContact", long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("endContact", long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("preSolve", long.class, long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("postSolve", long.class, long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("reportFixture", long.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("reportRayFixture", long.class, float.class, float.class, float.class, float.class, float.class));
+            JNIRuntimeAccess.register(com.badlogic.gdx.physics.box2d.World.class.getDeclaredMethod("contactFilter", long.class, long.class));
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

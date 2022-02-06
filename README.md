@@ -29,12 +29,14 @@ allprojects {
 Step 2. Add the dependency
 ```groovy
 dependencies {
-	implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta2'
-	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta2'     // LWJGL3
-	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta2'        // MOE
-	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-box2d:1.10.0-beta2'    // Box2D
-	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta2'   // Bullet
-	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-freetype:1.10.0-beta2' // FreeType
+	implementation 'io.github.anyicomplex:gdx-graalhelper:1.10.0-beta3'
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-lwjgl3:1.10.0-beta3'     // LWJGL3
+	implementation 'io.github.anyicomplex:gdx-graalhelper-backend-moe:1.10.0-beta3'        // MOE
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-box2d:1.10.0-beta3'    // Box2D
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-bullet:1.10.0-beta3'   // Bullet
+	implementation 'io.github.anyicomplex:gdx-graalhelper-extension-freetype:1.10.0-beta3' // FreeType
+    
+    implementation 'io.github.anyicomplex:gdx-graalhelper-extension-controllers-lwjgl3:2.2.1-beta3' // Controllers
 }
 ```
 ### 2. Set the shared library path (LWJGL3 backend only)

@@ -19,6 +19,7 @@ allprojects {
 
 }
 
+version gdxVersion + '-beta3'
 dependencies {
     implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
 }

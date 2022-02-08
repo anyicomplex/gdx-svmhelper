@@ -1,25 +1,22 @@
 allprojects {
     apply plugin: "java-library"
-
+    group 'io.github.anyicomplex'
+    sourceCompatibility = 1.8
     ext {
         gdxVersion = '1.10.0'
+        versionSuffix = '-beta4'
         gdxControllersVersion = '2.2.1'
         graalvmVersion = '22.0.0'
     }
-
-    group 'io.github.anyicomplex'
-
     repositories {
         mavenCentral()
     }
-
     dependencies {
         api "org.graalvm.nativeimage:svm:$graalvmVersion"
     }
-
 }
 
-version gdxVersion + '-beta3'
+version gdxVersion + versionSuffix
 dependencies {
     implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
 }
@@ -31,7 +28,7 @@ subprojects {
 }
 
 project(":backends:lwjgl3") {
-    version gdxVersion + '-beta3'
+    version gdxVersion + versionSuffix
     dependencies {
         // Compile GraalVM platform library
         compileOnly "org.graalvm.nativeimage:svm-hosted-native-linux-amd64:$graalvmVersion"
@@ -42,35 +39,35 @@ project(":backends:lwjgl3") {
 }
 
 project(":extensions:box2d") {
-    version gdxVersion + '-beta3'
+    version gdxVersion + versionSuffix
     dependencies {
         implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     }
 }
 
 project(":extensions:bullet") {
-    version gdxVersion + '-beta3'
+    version gdxVersion + versionSuffix
     dependencies {
         implementation "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
     }
 }
 
 project(":extensions:freetype") {
-    version gdxVersion + '-beta3'
+    version gdxVersion + versionSuffix
     dependencies {
         implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     }
 }
 
 project(":extensions:controllers-lwjgl3") {
-    version gdxControllersVersion + '-beta3'
+    version gdxControllersVersion + versionSuffix
     dependencies {
         implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
     }
 }
 
 project(":extensions:controllers-moe") {
-    version gdxControllersVersion + '-beta3'
+    version gdxControllersVersion + versionSuffix
     dependencies {
         //Dependencies coming
     }
@@ -109,7 +106,7 @@ configure([
                 version = project.version
                 from components.java
                 pom {
-                    def nameStr = "libGDX Graal Helper"
+                    def nameStr = "libGDX GraalVM Native Image Helper"
                     if (project.name != rootProject.name) {
                         nameStr += " ("
                         nameStr += project.parent.name.substring(0, 1).toUpperCase()
@@ -120,8 +117,8 @@ configure([
                         nameStr += ")"
                     }
                     name = nameStr
-                    description = 'Experimental helper for libGDX to build GraalVM native-image.'
-                    url = 'https://github.com/anyicomplex/gdx-graalhelper'
+                    description = 'Experimental helper for libGDX to build GraalVM Native Image.'
+                    url = 'https://github.com/anyicomplex/gdx-svmhelper'
                     licenses {
                         license {
                             name = 'The Apache License, Version 2.0'
@@ -136,9 +133,9 @@ configure([
                         }
                     }
                     scm {
-                        connection = 'scm:git:https://github.com/anyicomplex/gdx-graalhelper.git'
-                        developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-graalhelper.git'
-                        url = 'https://github.com/anyicomplex/gdx-graalhelper/tree/main'
+                        connection = 'scm:git:https://github.com/anyicomplex/gdx-svmhelper.git'
+                        developerConnection = 'scm:git:git@github.com:anyicomplex/gdx-svmhelper.git'
+                        url = 'https://github.com/anyicomplex/gdx-svmhelper/tree/main'
                     }
                 }
                 versionMapping {

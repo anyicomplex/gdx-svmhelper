@@ -4,7 +4,7 @@ allprojects {
     sourceCompatibility = 1.8
     ext {
         gdxVersion = '1.10.0'
-        versionSuffix = '-beta4'
+        versionSuffix = '-beta5'
         gdxControllersVersion = '2.2.1'
         graalvmVersion = '22.0.0'
     }
@@ -106,7 +106,7 @@ configure([
                 version = project.version
                 from components.java
                 pom {
-                    def nameStr = "libGDX GraalVM Native Image Helper"
+                    def nameStr = "Gdx GraalVM Native Image Helper"
                     if (project.name != rootProject.name) {
                         nameStr += " ("
                         nameStr += project.parent.name.substring(0, 1).toUpperCase()

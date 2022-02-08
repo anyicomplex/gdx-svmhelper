@@ -3,7 +3,7 @@
 Experimental helper for [libGDX](https://libgdx.com/) to build [GraalVM](https://www.graalvm.org/) Native Image.  
 **Note: This library is now beta version, should has some bugs and cannot provide any guarantee of success build.**
 
-## Features
+## Current State
 | Supported libGDX feature  |Version|        State        |
 |:-------------------------:|:-----:|:-------------------:|
 |      LWJGL3 Backend       |1.10.0 |   Almost Complete   |
